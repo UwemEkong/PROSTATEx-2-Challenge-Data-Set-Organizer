@@ -2,7 +2,7 @@
 
 ## Description
 
-The purpose of this project is to organize the Training Cohort dataset from the 2017 SPIE-AAPM Prostate MR Gleason Grade Group Challenge. Organizing the data makes it easier to interpret and process.
+The purpose of this project is to organize the Training Cohort data set from the 2017 SPIE-AAPM Prostate MR Gleason Grade Group Challenge. 
 
 ## Installation
 

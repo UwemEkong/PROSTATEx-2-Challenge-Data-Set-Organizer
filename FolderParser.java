@@ -31,7 +31,7 @@ public class FolderParser {
 	 */
 	public void cleanData() {
 		try {
-			makeCopy(sourceFolderPath);
+			makeCopy(new File(sourceFolderPath), new File(sourceFolderPath + " (1)"));
 			deleteFirstLayer(sourceFolderPath);
 			renameViews(sourceFolderPath);
 			renameDicom(sourceFolderPath);
@@ -44,25 +44,37 @@ public class FolderParser {
 	}
 
 	/**
-	 * Creates a copy of the unedited data set directory before organizing the data
+	 * Creates a copy of the unedited data set directory
 	 * 
-	 * @param sourceFolderPath - Path to main directory
+	 * @param sourceDir
+	 * @param targetDir
 	 * @throws IOException
 	 */
-	private void makeCopy(String sourceFolderPath) throws IOException {
-		Path sourcePath = Paths.get(sourceFolderPath);
-		Path destinationPath = Paths.get(sourceFolderPath + " (1)");
-		Files.walk(sourcePath).forEach(file -> {
-			Path destination = Paths.get(destinationPath.toString(),
-					file.toString().substring(sourceFolderPath.length()));
+	private static void makeCopy(File sourceDir, File targetDir) throws IOException {
+	
+		  if (sourceDir.isDirectory()) {
+	            copyDirectoryRecursively(sourceDir, targetDir);
+	        } else {
+	            Files.copy(sourceDir.toPath(), targetDir.toPath());
+	        }
+	    }
+	
+	/**
+	 * Recursively copies all files and folders in the original folder
+	 * 
+	 * @param source - original file path
+	 * @param target - target file path
+	 * @throws IOException
+	 */
+	private static void copyDirectoryRecursively(File source, File target)
+	 throws IOException {
+	        if (!target.exists()) {
+	            target.mkdir();
+	        }
 
-			try {
-				Files.copy(sourcePath, destination);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		});
-
+	        for (String child : source.list()) {
+	        	makeCopy(new File(source, child), new File(target, child));
+	        }
 	}
 
 	/**

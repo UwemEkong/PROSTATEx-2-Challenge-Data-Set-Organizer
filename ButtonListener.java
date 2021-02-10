@@ -89,6 +89,7 @@ public class ButtonListener implements ActionListener {
 	 * Image that displays when the program is finished executing
 	 */
 	private JLabel finishedMessage;
+
 	/**
 	 * Path to the "ProstateX-2-Findings-Train" csv file
 	 */
@@ -194,7 +195,8 @@ public class ButtonListener implements ActionListener {
 	}
 
 	/**
-	 * Removes the data set info and instructions and replaces it with the csv information
+	 * Removes the data set info and instructions and replaces it with the csv
+	 * information
 	 */
 	private void updateContentPaneWithCSVInfo() {
 		contentPane.remove(selectedBtn);
@@ -217,7 +219,7 @@ public class ButtonListener implements ActionListener {
 	 * Parses the data set so that the data can be cleaned
 	 */
 	private void organizeDataSet() {
-		
+
 		SwingWorker<Void, Void> worker = new SwingWorker<Void, Void>() {
 
 			@Override
@@ -228,7 +230,7 @@ public class ButtonListener implements ActionListener {
 				removeLoadingScreen();
 				return null;
 			}
-			
+
 		};
 		addLoadingScreen();
 		worker.execute();

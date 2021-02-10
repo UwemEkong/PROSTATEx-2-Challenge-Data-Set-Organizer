@@ -3,6 +3,8 @@
 ## Description
 
 The purpose of this project is to organize the Training Cohort data set from the 2017 SPIE-AAPM Prostate MR Gleason Grade Group Challenge. The data sets from the challenge can be found [here](https://wiki.cancerimagingarchive.net/display/Public/SPIE-AAPM-NCI+PROSTATEx+Challenges#23691656d4622c5ad5884bdb876d6d441994da38)
+* For this program, you will need the dicom images of the training cohort, as well as the lesion information
+* Be sure to download the data from the "May 15, 2017 to Aug 3, 2017" challenge
 
 ## Installation
 
@@ -10,7 +12,7 @@ The purpose of this project is to organize the Training Cohort data set from the
   ```
   git clone https://github.com/UwemEkong/PROSTATEx-2-Challenge-Data-Set-Organizer
   ```
-2. cd into the cloned directory on your local machine. It will be laabeled "PROSTATEx-2-Challenge-Data-Set-Organizer"
+2. cd into the cloned directory on your local machine. It will be labeled "PROSTATEx-2-Challenge-Data-Set-Organizer"
   ```
   cd .../.../PROSTATEx-2-Challenge-Data-Set-Organizer
   ```

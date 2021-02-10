@@ -1,1 +1,1 @@
-# PROSTATEx-2-Data-Set-Organizer
+# PROSTATEx-2-Challenge-Data-Set-Organizer

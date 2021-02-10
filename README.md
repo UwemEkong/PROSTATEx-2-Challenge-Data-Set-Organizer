@@ -10,25 +10,18 @@ The purpose of this project is to organize the Training Cohort dataset from the 
   ```
   git clone https://github.com/UwemEkong/PROSTATEx-2-Challenge-Data-Set-Organizer
   ```
-2. cd into the cloned repo named "PROSTATEx-2-Challenge-Data-Set-Organizer"
+2. cd into the cloned directory on your local machine. It will be laabeled "PROSTATEx-2-Challenge-Data-Set-Organizer"
   ```
   cd .../.../PROSTATEx-2-Challenge-Data-Set-Organizer
   ```
-
-## Usage
-
-```python
-import foobar
-
-foobar.pluralize('word') # returns 'words'
-foobar.pluralize('goose') # returns 'geese'
-foobar.singularize('phenomena') # returns 'phenomenon'
-```
-
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
-
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
+3. Compile the program with the "javac *.java" command
+  ```
+  javac *.java
+  ```
+  When running this command, you might get the error "javac is not recognized as an internal or external command, operable program or batch file". This means that the java     path is not set on your computer.
+  * For windows machines, follow this [**setup guide**](https://www.youtube.com/watch?v=IJ-PJbvJBGs&t=80s&ab_channel=ProgrammingKnowledge)
+  * For  Mac OS X, follow this [**setup guide**](https://www.youtube.com/watch?v=y6szNJ4rMZ0&ab_channel=ProgrammingKnowledge)
+  
+  Once the java path is set on your computer, try the "javac *.java command once more"
+  
+  4. Boot up the GUI by typing in the command "java GUI"

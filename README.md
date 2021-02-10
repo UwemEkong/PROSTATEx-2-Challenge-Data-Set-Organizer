@@ -7,9 +7,9 @@ The purpose of this project is to organize the Training Cohort dataset from the 
 ## Installation
 
 1. Clone the repo
-  '''
-  git glone https://github.com/UwemEkong/PROSTATEx-2-Challenge-Data-Set-Organizer
-  '''
+  ```
+  git clone https://github.com/UwemEkong/PROSTATEx-2-Challenge-Data-Set-Organizer
+  ```
 
 
 ## Usage

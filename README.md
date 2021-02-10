@@ -25,3 +25,6 @@ The purpose of this project is to organize the Training Cohort dataset from the 
   Once the java path is set on your computer, try the "javac *.java command once more"
   
   4. Boot up the GUI by typing in the command "java GUI"
+  ```
+  java GUI
+  ```

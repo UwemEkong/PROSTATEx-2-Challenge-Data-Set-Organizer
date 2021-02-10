@@ -1,3 +1,4 @@
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -67,13 +68,14 @@ public class CSVParser {
 
 			String id = dataArr[0];
 			int score = score = Integer.parseInt(dataArr[dataArr.length - 1]);
-			if (!dataArr[dataArr.length - 1].equals("ggg")) {
-
-			}
 
 			if (numGroupsPerPatient.containsKey(id) && !numGroupsPerPatient.get(id).contains(score)) {
 				numGroupsPerPatient.get(id).add(score);
+			} else if (numGroupsPerPatient.containsKey(id) && !numGroupsPerPatient.get(id).contains(score)
+					|| id.length() <= 0) {
+				return;
 			} else {
+
 				ArrayList<Integer> scores = new ArrayList();
 				scores.add(score);
 				numGroupsPerPatient.put(id, scores);

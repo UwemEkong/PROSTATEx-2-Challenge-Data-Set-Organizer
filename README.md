@@ -2,7 +2,7 @@
 
 ## Description
 
-The purpose of this project is to organize the Training Cohort dataset from the 2017 SPIE-AAPM Prostate MR Gleason Grade Group Challenge. Organizing the data makes it much easier to interpret and process.
+The purpose of this project is to organize the Training Cohort dataset from the 2017 SPIE-AAPM Prostate MR Gleason Grade Group Challenge. Organizing the data makes it easier to interpret and process.
 
 ## Installation
 
@@ -10,7 +10,10 @@ The purpose of this project is to organize the Training Cohort dataset from the 
   ```
   git clone https://github.com/UwemEkong/PROSTATEx-2-Challenge-Data-Set-Organizer
   ```
-
+2. cd into the cloned repo named "PROSTATEx-2-Challenge-Data-Set-Organizer"
+  ```
+  cd .../.../PROSTATEx-2-Challenge-Data-Set-Organizer
+  ```
 
 ## Usage
 

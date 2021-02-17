@@ -51,14 +51,14 @@ public class FolderParser {
 	 * @throws IOException
 	 */
 	private static void makeCopy(File sourceDir, File targetDir) throws IOException {
-	
-		  if (sourceDir.isDirectory()) {
-	            copyDirectoryRecursively(sourceDir, targetDir);
-	        } else {
-	            Files.copy(sourceDir.toPath(), targetDir.toPath());
-	        }
-	    }
-	
+
+		if (sourceDir.isDirectory()) {
+			copyDirectoryRecursively(sourceDir, targetDir);
+		} else {
+			Files.copy(sourceDir.toPath(), targetDir.toPath());
+		}
+	}
+
 	/**
 	 * Recursively copies all files and folders in the original folder
 	 * 
@@ -66,15 +66,14 @@ public class FolderParser {
 	 * @param target - target file path
 	 * @throws IOException
 	 */
-	private static void copyDirectoryRecursively(File source, File target)
-	 throws IOException {
-	        if (!target.exists()) {
-	            target.mkdir();
-	        }
+	private static void copyDirectoryRecursively(File source, File target) throws IOException {
+		if (!target.exists()) {
+			target.mkdir();
+		}
 
-	        for (String child : source.list()) {
-	        	makeCopy(new File(source, child), new File(target, child));
-	        }
+		for (String child : source.list()) {
+			makeCopy(new File(source, child), new File(target, child));
+		}
 	}
 
 	/**
@@ -154,13 +153,18 @@ public class FolderParser {
 	public static void copyFolder(String sourcePath, String destinationPath) throws IOException {
 
 		Files.walk(Paths.get(sourcePath)).forEach(source -> {
-			Path destination = Paths.get(destinationPath, source.toString().substring(sourcePath.length()));
-			// System.out.println("Dest:" + destination.getFileName().toString());
-			try {
-				Files.copy(source, destination);
-			} catch (IOException e) {
-				e.printStackTrace();
+
+			if (!source.getFileName().toString().contains("MR")) {
+				Path destination = Paths.get(destinationPath, source.toString().substring(sourcePath.length()));
+				try {
+
+					Files.copy(source, destination);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+
 			}
+
 		});
 
 		deleteFolder(sourcePath);
@@ -224,18 +228,21 @@ public class FolderParser {
 	private static void renameFile(String filePath, String fileName) {
 		String newName = "";
 		Path oldPath = Paths.get(filePath);
-		if (fileName.contains("ADC")) {
-			newName = "ep2adc";
-		} else if (fileName.contains("CALC")) {
-			newName = "ep2calc";
-		}
-		if (fileName.contains("sag")) {
-			newName = "t2sag";
-		} else if (fileName.contains("setra")) {
-			newName = "t2setra";
-		}
 
-		changeFileName(oldPath, newName);
+		if (!oldPath.toString().contains("dcm") && !fileName.contains("ProstateX")) {
+			if (fileName.contains("ADC")) {
+				newName = "ep2adc";
+			} else if (fileName.contains("CALC")) {
+				newName = "ep2calc";
+			}
+			if (fileName.contains("sag")) {
+				newName = "t2sag";
+			} else if (fileName.contains("setra")) {
+				newName = "t2setra";
+			}
+
+			changeFileName(oldPath, newName);
+		}
 
 	}
 
@@ -435,20 +442,15 @@ public class FolderParser {
 
 				Path destination = Paths
 						.get(groupFolder.toString() + File.separatorChar + dicomImage.getFileName().toString());
-				try {
-					FileWriter w;
-					try {
-						w = new FileWriter("fileData");
-						w.write("Origin: " + dicomImage.toString() + "\n");
-						w.write("Dest: " + destination.toString() + "\n");
-						w.close();
-					} catch (IOException e1) {
 
-						e1.printStackTrace();
+				try {
+
+					if (dicomImage.toString().contains(".dcm")) {
+						Files.copy(dicomImage, destination);
 					}
-					Files.copy(dicomImage, destination);
 
 				} catch (IOException e) {
+
 					e.printStackTrace();
 				}
 
